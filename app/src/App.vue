@@ -1,26 +1,33 @@
-<template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
-</template>
-
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { WalletMultiButton } from 'solana-wallets-vue';
+import {
+  LedgerWalletAdapter,
+  PhantomWalletAdapter,
+  SlopeWalletAdapter,
+  TorusWalletAdapter,
+} from '@solana/wallet-adapter-wallets';
+import { initWallet } from 'solana-wallets-vue';
+
+const wallets = {
+  wallets: [
+    new PhantomWalletAdapter(),
+    new SlopeWalletAdapter(),
+    new TorusWalletAdapter(),
+    new LedgerWalletAdapter(),
+  ],
+  autoConnect: true,
+};
+
+initWallet(wallets);
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    WalletMultiButton
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<template>
+  <wallet-multi-button></wallet-multi-button>
+</template>
