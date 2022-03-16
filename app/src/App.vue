@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import { WalletMultiButton } from 'solana-wallets-vue';
 import {
   LedgerWalletAdapter,
@@ -6,7 +6,7 @@ import {
   SlopeWalletAdapter,
   TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
-import { initWallet } from 'solana-wallets-vue';
+import { initWallet, useWallet } from 'solana-wallets-vue';
 
 const wallets = {
   wallets: [
@@ -14,20 +14,18 @@ const wallets = {
     new SlopeWalletAdapter(),
     new TorusWalletAdapter(),
     new LedgerWalletAdapter(),
-  ],
-  autoConnect: true,
+  ]
 };
-
 initWallet(wallets);
 
-export default {
-  name: 'App',
-  components: {
-    WalletMultiButton
-  }
-}
+const { connected, wallet, publicKey } = useWallet();
 </script>
 
 <template>
-  <wallet-multi-button></wallet-multi-button>
+  <div>
+    <p v-if="connected">Wallet with public key {{publicKey}} successfully connected!</p>
+    <div v-else>
+      <wallet-multi-button></wallet-multi-button>
+    </div>
+  </div>
 </template>
