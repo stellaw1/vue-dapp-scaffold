@@ -28,9 +28,9 @@ initWallet({ wallets, autoConnect: true});
         <app-bar class="block"></app-bar>
 
         <!-- Main -->
-        <main class="flex-1 border-r border-l ml-20 md:ml-64 min-h-screen">
+        <main class="flex-1 border-r border-l min-h-screen">
           <header class="flex space-x-6 items-center justify-between px-8 py-4 border-b">
-              <div class="text-xl font-bold">basics</div>
+              <div class="text-xl font-bold">Basics</div>
           </header>
           <!-- SignMessage -->
           <sign-message></sign-message>

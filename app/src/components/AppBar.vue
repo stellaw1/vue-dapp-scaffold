@@ -5,7 +5,7 @@ const { connected } = useWallet();
 
 <template>
   <div class="bg-gray-100">
-    <nav class=" px-6 py-8 mx-auto md:flex md:justify-between md:items-center h-44">
+    <nav class=" px-6 py-8 mx-auto md:flex md:justify-between md:items-center">
       <div class="flex items-center justify-between">
         <router-link to="/" class="text-xl font-bold text-gray-800 md:text-2xl hover:text-blue-400">
           Solana
@@ -64,7 +64,7 @@ const { connected } = useWallet();
         </div>
         </li>
         <li>
-          <div class="fixed bottom-8 right-8 md:static w-48 md:w-full">
+          <div class="bottom-8 right-8 md:static w-48 md:w-full">
             <wallet-multi-button></wallet-multi-button>
           </div>
         </li>
