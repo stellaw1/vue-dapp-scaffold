@@ -1,5 +1,5 @@
 <script setup>
-import { WalletMultiButton } from 'solana-wallets-vue';
+import AppBar from './components/AppBar';
 import {
   LedgerWalletAdapter,
   PhantomWalletAdapter,
@@ -7,25 +7,30 @@ import {
   TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
 import { initWallet, useWallet } from 'solana-wallets-vue';
+// import { initWorkspace } from '@/composables'
 
-const wallets = {
-  wallets: [
-    new PhantomWalletAdapter(),
-    new SlopeWalletAdapter(),
-    new TorusWalletAdapter(),
-    new LedgerWalletAdapter(),
-  ]
-};
-initWallet(wallets);
-
-const { connected, wallet, publicKey } = useWallet();
+const wallets = [
+  new PhantomWalletAdapter(),
+  new SlopeWalletAdapter(),
+  new TorusWalletAdapter(),
+  new LedgerWalletAdapter(),
+];
+initWallet({ wallets, autoConnect: true});
+// initWorkspace()
 </script>
 
 <template>
-  <div>
-    <p v-if="connected">Wallet with public key {{publicKey}} successfully connected!</p>
-    <div v-else>
-      <wallet-multi-button></wallet-multi-button>
+  <div class="w-full max-w-3xl lg:max-w-4xl mx-auto">
+
+        <!-- AppBar -->
+        <app-bar></app-bar>
+
+        <!-- Main -->
+        <!-- <main class="flex-1 border-r border-l ml-20 md:ml-64 min-h-screen">
+            <header class="flex space-x-6 items-center justify-between px-8 py-4 border-b">
+                <div class="text-xl font-bold" v-text="route.name"></div>
+            </header>
+            <router-view></router-view>
+        </main> -->
     </div>
-  </div>
 </template>
