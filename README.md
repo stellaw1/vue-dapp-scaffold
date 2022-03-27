@@ -2,7 +2,7 @@
 
 ## Features
 
-- [ ] Wallet Integration with Auto Connec / Refresh
+- [x] Wallet Integration with Auto Connec / Refresh
 
 - [ ] State Management
 

@@ -8,8 +8,7 @@ import {
   SlopeWalletAdapter,
   TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
-import { initWallet, useWallet } from 'solana-wallets-vue';
-// import { initWorkspace } from '@/composables'
+import { initWallet } from 'solana-wallets-vue';
 
 const wallets = [
   new PhantomWalletAdapter(),
@@ -17,8 +16,8 @@ const wallets = [
   new TorusWalletAdapter(),
   new LedgerWalletAdapter(),
 ];
+
 initWallet({ wallets, autoConnect: true});
-// initWorkspace()
 </script>
 
 <template>

@@ -1,6 +1,5 @@
 <script setup>
-import { WalletMultiButton, useWallet } from 'solana-wallets-vue'
-const { connected } = useWallet();
+import { WalletMultiButton } from 'solana-wallets-vue'
 </script>
 
 <template>
