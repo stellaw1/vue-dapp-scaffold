@@ -2,7 +2,7 @@
 import { useWallet } from 'solana-wallets-vue'
 import { sign } from 'tweetnacl';
 
-const { publicKey, signMessage } = useWallet();
+const { publicKey, connected, signMessage } = useWallet();
 
 const onClick = async () => {
     try {
@@ -28,10 +28,15 @@ const onClick = async () => {
 <template>
     <div>
         <button
-            class="px-4 py-2 rounded-full font-semibold"
+            class="group w-60 m-2 btn animate-pulse disabled:animate-none bg-gradient-to-r from-[#9945FF] to-[#14F195] hover:from-pink-500 hover:to-yellow-500 ... "
             @click="onClick" :disabled="! publicKey"
         >
-            Sign Message
+            <div v-if="connected">
+                Sign Message
+            </div>
+            <div v-else>
+                Wallet not connected
+            </div>
         </button>
     </div>
 </template>
