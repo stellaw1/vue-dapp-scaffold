@@ -1,8 +1,8 @@
 <script setup>
+import { useRoute } from 'vue-router';
 import 'solana-wallets-vue/styles.css'
 import AppBar from './components/AppBar';
-import SignMessage from './components/SignMessage';
-import sendTransaction from './components/SendTransaction';
+import BasicPage from './pages/BasicPage'
 import {
   LedgerWalletAdapter,
   PhantomWalletAdapter,
@@ -10,6 +10,8 @@ import {
   TorusWalletAdapter,
 } from '@solana/wallet-adapter-wallets';
 import { initWallet } from 'solana-wallets-vue';
+
+const route = useRoute()
 
 const wallets = [
   new PhantomWalletAdapter(),
@@ -28,13 +30,11 @@ initWallet({ wallets, autoConnect: true});
         <app-bar class="block"></app-bar>
 
         <!-- Main -->
-        <main class="flex-1 border-r border-l min-h-screen">
-          <header class="flex space-x-6 items-center justify-between px-8 py-4 border-b">
-              <div class="text-xl font-bold">Basics</div>
+        <main class="flex flex-col h-screen">
+          <header>
+              <title>Solana Scaffold Lite</title>
           </header>
-          <!-- SignMessage -->
-          <sign-message></sign-message>
-          <send-transaction></send-transaction>
+          <router-view></router-view>
         </main>
     </div>
 </template>
