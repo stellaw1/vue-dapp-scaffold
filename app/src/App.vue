@@ -2,6 +2,7 @@
 import 'solana-wallets-vue/styles.css'
 import AppBar from './components/AppBar';
 import SignMessage from './components/SignMessage';
+import sendTransaction from './components/SendTransaction';
 import {
   LedgerWalletAdapter,
   PhantomWalletAdapter,
@@ -33,6 +34,7 @@ initWallet({ wallets, autoConnect: true});
           </header>
           <!-- SignMessage -->
           <sign-message></sign-message>
+          <send-transaction></send-transaction>
         </main>
     </div>
 </template>
