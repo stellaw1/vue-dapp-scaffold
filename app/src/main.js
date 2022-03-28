@@ -26,7 +26,6 @@ const router = createRouter({
 //   }
 // })
 
-
 // Create App
 import { createApp } from 'vue'
 import App from './App.vue'
