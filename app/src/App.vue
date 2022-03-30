@@ -2,6 +2,7 @@
 import { useRoute } from 'vue-router';
 import 'solana-wallets-vue/styles.css'
 import AppBar from './components/AppBar';
+import FooterBar from './components/FooterBar';
 import BasicPage from './pages/BasicPage'
 import {
   LedgerWalletAdapter,
@@ -24,17 +25,18 @@ initWallet({ wallets, autoConnect: true});
 </script>
 
 <template>
-  <div class="w-full max-w-3xl lg:max-w-4xl mx-auto">
+  <div>
 
-        <!-- AppBar -->
-        <app-bar class="block"></app-bar>
 
         <!-- Main -->
         <main class="flex flex-col h-screen">
           <header>
               <title>Solana Scaffold Lite</title>
           </header>
+          <!-- AppBar -->
+          <app-bar class="block"></app-bar>
           <router-view></router-view>
         </main>
+        <footer-bar></footer-bar>
     </div>
 </template>
