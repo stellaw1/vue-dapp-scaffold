@@ -2,10 +2,8 @@
 import store from '../vuex'
 import { useWallet } from 'solana-wallets-vue'
 import { Connection, clusterApiUrl, LAMPORTS_PER_SOL } from '@solana/web3.js';
-// import useUserSOLBalanceStore from '../stores/useUserSOLBalanceStore';
 
 const { publicKey, connected, sendTransaction } = useWallet();
-// const { getUserSOLBalance } = useUserSOLBalanceStore();
 
 const onClick = async () => {
         if (!publicKey) {

@@ -14,7 +14,7 @@ import pkg from '../../package.json';
           <p>Simply the fastest way to get started.</p>
           Next.js, tailwind, wallet, web3.js, and more.
         </h4>
-        <div className="max-w-md mx-auto mockup-code bg-primary p-6 my-2">
+        <div className="max-w-md mx-auto mockup-code bg-neutral p-6 my-2">
           <pre data-prefix=">">
             <code className="truncate">Start building on Solana  </code>
           </pre>
