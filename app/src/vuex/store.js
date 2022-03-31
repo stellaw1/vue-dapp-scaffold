@@ -3,12 +3,16 @@ import { createStore } from 'vuex';
 export const store = createStore({
     state () {
         return {
-            autoConnect: true
+            autoConnect: true,
+            userSOLBalance: 0
         }
     },
     mutations: {
         flip (state) {
             state.autoConnect = !state.autoConnect
+        },
+        updateBalance (state, payload) {
+            state.userSOLBalance += payload.balance
         }
     }
 });
