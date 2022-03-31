@@ -35,8 +35,8 @@ initWallet({ wallets, autoConnect: true});
           </header>
           <!-- AppBar -->
           <app-bar class="block"></app-bar>
-          <router-view></router-view>
+          <router-view class="mx-auto h-5/6 block"></router-view>
+          <footer-bar></footer-bar>
         </main>
-        <footer-bar></footer-bar>
     </div>
 </template>
