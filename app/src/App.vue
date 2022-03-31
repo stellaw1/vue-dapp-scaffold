@@ -1,5 +1,6 @@
 <script setup>
 import { useRoute } from 'vue-router';
+import store from './vuex';
 import 'solana-wallets-vue/styles.css'
 import AppBar from './components/AppBar';
 import FooterBar from './components/FooterBar';
@@ -21,7 +22,7 @@ const wallets = [
   new LedgerWalletAdapter(),
 ];
 
-initWallet({ wallets, autoConnect: true});
+initWallet({ wallets, autoConnect: store.state.autoConnect});
 </script>
 
 <template>

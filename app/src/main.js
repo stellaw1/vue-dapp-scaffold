@@ -1,33 +1,20 @@
-// CSS
 import 'solana-wallets-vue/styles.css'
 import './main.css'
 
-// Routing
+import { createApp } from 'vue'
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { sync } from 'vuex-router-sync'
+
 import routes from './routes'
+import store from './vuex'
+import App from './App.vue'
+
 const router = createRouter({
     history: createWebHashHistory(),
     routes,
+    store
 })
 
-// // Create a new store instance.
-// import { createStore } from 'vuex'
+sync(store, router);
 
-// const UserSOLBalanceStore = createStore({
-//   state () {
-//     return {
-//       balance: 0
-//     }
-//   },
-//   mutations: {
-//     increment (state) {
-//       state.count++
-//     }
-//   }
-// })
-
-// Create App
-import { createApp } from 'vue'
-import App from './App.vue'
 createApp(App).use(router).mount('#app')
-// .use(UserSOLBalanceStore)

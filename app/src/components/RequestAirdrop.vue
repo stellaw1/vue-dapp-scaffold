@@ -1,6 +1,7 @@
 <script setup>
+import store from '../vuex'
 import { useWallet } from 'solana-wallets-vue'
-import { Connection, clusterApiUrl, LAMPORTS_PER_SOL, TransactionSignature } from '@solana/web3.js';
+import { Connection, clusterApiUrl, LAMPORTS_PER_SOL } from '@solana/web3.js';
 // import useUserSOLBalanceStore from '../stores/useUserSOLBalanceStore';
 
 const { publicKey, connected, sendTransaction } = useWallet();
@@ -16,11 +17,16 @@ const onClick = async () => {
         try {
             const connection = new Connection(clusterApiUrl('devnet'));
 
-            signature = await connection.requestAirdrop(publicKey, LAMPORTS_PER_SOL);
+            signature = await connection.requestAirdrop(publicKey.value, LAMPORTS_PER_SOL);
             await connection.confirmTransaction(signature, 'confirmed');
-            console.log("success");
+            let balance = await connection.getBalance(
+                publicKey.value,
+                'confirmed'
+            );
+            balance = balance / LAMPORTS_PER_SOL;
+            store.commit("updateBalance", {balance: balance})
+            console.log("success, balance is now", store.state.userSOLBalance);
 
-            // getUserSOLBalance(publicKey, connection);
         } catch (error) {
             console.log('error', `Airdrop failed! ${error?.message}`, signature);
         }
