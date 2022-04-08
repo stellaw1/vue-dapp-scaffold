@@ -3,8 +3,8 @@ import { WalletMultiButton } from 'solana-wallets-vue'
 import store from '../vuex'
 
 
-const toggle = () => {
-  store.commit('flip')
+function flipAutoConnect (balance) {
+  store.commit('setAutoConnect')
 }
 </script>
 
@@ -75,7 +75,7 @@ const toggle = () => {
               <div className="form-control">
                 <label className="cursor-pointer label">
                   <a className="mr-4">Autoconnect</a>
-                  <input type="checkbox" @click="toggle" className="toggle" />
+                  <input type="checkbox" @click="flipAutoConnect" className="toggle" />
                 </label>
               </div>
             </li>

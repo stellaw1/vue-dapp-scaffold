@@ -8,7 +8,7 @@ export const store = createStore({
         }
     },
     mutations: {
-        flip (state) {
+        setAutoConnect (state) {
             state.autoConnect = !state.autoConnect
         },
         setBalance (state, payload) {
